@@ -21,13 +21,31 @@ document.addEventListener("DOMContentLoaded", function () {
     taskItem.classList.add("task-item");
     taskItem.innerHTML = `
             <h3>${task.taskName}</h3>
-            <p>${task.description}</p>
+            <p>Description: ${task.description}</p>
             <p>Status: ${task.status}</p>
             <p>Date Added: ${task.dateAdded}</p>
             <p>Estimated Finish Date: ${task.estimatedFinishDate}</p>
-            <button onclick="deleteTask(${task.id})">Delete</button>
-            <button onclick="editTask(${task.id})">Edit</button>
-        `;
+            <button style="background-color: #f21000; 
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;" onclick="deleteTask(${task.id})">Delete</button>
+        <button style="background-color: #008CBA; 
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;" onclick="editTask(${task.id})">Edit</button>
+    `;
     return taskItem;
   }
 
@@ -59,15 +77,19 @@ document.addEventListener("DOMContentLoaded", function () {
       })
       .then(() => {
         fetchTasks();
-        console.log("Redirecting to list.html");
-        window.location.href = "html/list.html";
       })
       .catch((error) => console.error("Error adding task:", error));
   }
 
-  function editTask(event, taskId) {
+  function editTask(event) {
     event.preventDefault();
+
+    // Extract taskId from the URL or any other method
+    const urlParams = new URLSearchParams(window.location.search);
+    const taskId = urlParams.get("taskId"); // Adjust this based on your URL structure
+
     const formData = new FormData(editTaskForm);
+    console.log("Editing task with ID:", taskId);
     const updatedTask = {
       taskName: formData.get("editTaskName"),
       description: formData.get("editDescription"),
@@ -89,8 +111,8 @@ document.addEventListener("DOMContentLoaded", function () {
         return response.json();
       })
       .then(() => {
-        fetchTasks();
         console.log("Task updated successfully");
+        // Redirect or perform any other actions after updating the task
       })
       .catch((error) => console.error("Error updating task:", error));
   }
@@ -141,6 +163,12 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   window.redirectToForm = redirectToForm;
+
+  function redirectToList() {
+    window.location.href = "list.html";
+  }
+
+  window.redirectToList = redirectToList;
 
   fetchTasks();
   addTaskForm.addEventListener("submit", addTask);

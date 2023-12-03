@@ -52,14 +52,12 @@ button:hover {
 
 .task-item p {
     margin: 5px 0;
-    color: #555;
+    color: #3c3b3b;
 }
 
-.task-item button {
-    background-color: #f44336;
-}
 
 .add-task {
     margin-bottom: 10px;
+    background-color: #4CAF50;
     
 }
