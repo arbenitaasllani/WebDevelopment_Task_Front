@@ -84,9 +84,8 @@ document.addEventListener("DOMContentLoaded", function () {
   function editTask(event) {
     event.preventDefault();
 
-    // Extract taskId from the URL or any other method
     const urlParams = new URLSearchParams(window.location.search);
-    const taskId = urlParams.get("taskId"); // Adjust this based on your URL structure
+    const taskId = urlParams.get("taskId");
 
     const formData = new FormData(editTaskForm);
     console.log("Editing task with ID:", taskId);
@@ -112,7 +111,6 @@ document.addEventListener("DOMContentLoaded", function () {
       })
       .then(() => {
         console.log("Task updated successfully");
-        // Redirect or perform any other actions after updating the task
       })
       .catch((error) => console.error("Error updating task:", error));
   }
