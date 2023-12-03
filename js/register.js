@@ -36,5 +36,5 @@ form.addEventListener("submit", function (event) {
     return;
   }
   alert("🥳Form submitted successfully!");
-  window.location.href = "./index.html";
+  window.location.href = "./list.html";
 });

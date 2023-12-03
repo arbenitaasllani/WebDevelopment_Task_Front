@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Edit Task</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Task</h1>
+        <div id="taskForm">
+
+            <!-- form for editing the task -->
+            <form id="editTaskForm">
+                <h2>Edit Task</h2>
+                <label for="editTaskName">Task Name:</label>
+                <input type="text" id="editTaskName" name="editTaskName" required>
+                <label for="editDescription">Description:</label>
+                <textarea id="editDescription" name="editDescription" required></textarea>
+                <label for="editStatus">Status:</label>
+                <input type="text" id="editStatus" name="editStatus" required>
+                <label for="editEstimatedFinishDate">Estimated Finish Date:</label>
+                <input type="date" id="editEstimatedFinishDate" name="editEstimatedFinishDate" required>
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+    </div>
+    <script src="../js/script.js"></script>
+</body>
+</html>
